@@ -25,8 +25,7 @@ pipeline {
 			}
 		}
 	}
-}
- post {
+	 post {
 	always {
 		echo "This will always run"
 	}
@@ -36,4 +35,5 @@ pipeline {
 	failure {
 		echo "This will run only if the pipeline fails"
 	}
+}
 }
