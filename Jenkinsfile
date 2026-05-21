@@ -10,7 +10,8 @@ pipeline {
 	// agent any
 	agent {
 		docker {
-		image 'maven:3.6.3'
+			image 'maven:3.6.3'
+		}
 	}
 	stages {
 		stage('Build') {
@@ -30,16 +31,15 @@ pipeline {
 			}
 		}
 	}
-	 post {
-	always {
-		echo "This will always run"
+	post {
+		always {
+			echo "This will always run"
+		}
+		success {
+			echo "This will run only if the pipeline is successful"
+		}
+		failure {
+			echo "This will run only if the pipeline fails"
+		}
 	}
-	success {
-		echo "This will run only if the pipeline is successful"
-	}
-	failure {
-		echo "This will run only if the pipeline fails"
-	}
-}
-}
 }
